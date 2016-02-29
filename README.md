@@ -4,8 +4,9 @@ double click node-start = bash excute `contents\node contents\main.js`, both mac
 
 ## usage
 
-- download [files]()
+- download [files](https://github.com/defims/node-start/tags/v1.0.0)
 - write your nodejs code start from `contents/main.js`
+- if you want to change node, just replace it
 
 ## build yourself
 
@@ -15,31 +16,31 @@ use [mingw32](http://www.mingw.org/)(gcc and windres)
 
 ## build node-start.o
 
-    ```bash
-    gcc src\node-start.c -c -o src\node-start.o
-    ```
+```bash
+gcc src\node-start.c -c -o src\node-start.o
+```
 
 ## build resouce (windres will be installed with mingw32)
 
 if you want to change the icon, replace `src/icon.ico`
 
-    ```bash
-    windres src\node-start.rc -O coff -o src\node-start.res
-    ```
+```bash
+windres src\node-start.rc -O coff -o src\node-start.res
+```
 
 ## build node-start.exe
 
 ### show console
 
-    ```bash
-    gcc -o Release\windows\node-start src\node-start.o src\node-start.res
-    ```
+```bash
+gcc -o Release\windows\node-start src\node-start.o src\node-start.res
+```
 
 ### hide console
 
-    ```bash
-    gcc -mwindows -o Release\windows\node-start src\node-start.o src\node-start.res
-    ```
+```bash
+gcc -mwindows -o Release\windows\node-start src\node-start.o src\node-start.res
+```
 
 ## put your code
 
@@ -59,9 +60,9 @@ use xcode built-in gcc
 
 ### build node-start unix excutable file
 
-    ```bash
-    gcc src/a.c -o Release/macosx/node-start
-    ```
+```bash
+gcc src/a.c -o Release/macosx/node-start
+```
 
 ### change the icon
 
