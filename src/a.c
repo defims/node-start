@@ -156,17 +156,44 @@ int set_dirname_filename()
 
     return 1;
 }
+
+int is_mac_app(char *str)
+{
+    char *str_p;
+    char *mac_app;
+    char *mac_app_p;
+    int ret = 1;
+    
+    mac_app = "/Contents/MacOS";
+
+    for(
+        str_p = str + strlen(str), mac_app_p = mac_app + strlen(mac_app);
+        str_p > str && mac_app_p > mac_app;
+        str_p--, mac_app_p--
+    )
+    {
+        if (*mac_app_p != *str_p)
+        {
+            ret = 0;
+        }
+    }
+    return ret;
+}
 //int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nShowCmd)
 int main ( int argc, char **argv )
 {
     set_dirname_filename();
     //printf("\n%s\n", __dirname);
     //printf("\n%s\n", __filename);
-    //printf("%s\n",concat("ab","cd","ef",NULL));
 
-    //printf("\n%s\n",concat(__dirname,"/contents/node ",__dirname,"/contents/main.js", NULL));
-    //system(concat(__dirname,"/contents/node ",__dirname,"/contents/main.js", NULL));
-    executeCommand(concat(__dirname,"/contents/node ",__dirname,"/contents/main.js", NULL));
+    if(is_mac_app(__dirname))//node-start.app
+    {
+        executeCommand(concat(__dirname,"/../../../contents/node ",__dirname,"/../../../contents/main.js", NULL));//node-start.app execute this
+    }
+    else
+    {
+        executeCommand(concat(__dirname,"/contents/node ",__dirname,"/contents/main.js", NULL));//node-start execute this
+    }
     //windows can execute without .exe
 
     return 0;
