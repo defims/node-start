@@ -4,9 +4,8 @@ double click node-start = bash excute `contents\node contents\main.js`, both mac
 
 ## usage
 
-- download [files](https://github.com/defims/node-start/tags/)
+- download and unzip [files](https://github.com/defims/node-start/tags/)
 - write your nodejs code start from `contents/main.js`
-- if you want to change node, just replace it
 
 ## build yourself
 
