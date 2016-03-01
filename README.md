@@ -4,7 +4,7 @@ double click node-start = bash excute `contents\node contents\main.js`, both mac
 
 ## usage
 
-- download and unzip [files](https://github.com/defims/node-start/tags/)
+- download [files](https://github.com/defims/node-start/tags/)
 - write your nodejs code start from `contents/main.js`
 
 ## build yourself
@@ -80,4 +80,12 @@ double click `Release/macosx/node-start`, it will excute `contents/node.exe cont
 
 ## hide console
 
-### coming soon
+macosx default app will hide the console window
+
+### open `src/node-start.xcodeproj`
+
+### build node-start
+
+you may need to set the location at `Preference/Locations/Advanced/Custom/products`
+
+### move the `src/Build/Release/node-start.app` to `Release/macosx/`
